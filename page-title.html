@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <!-- <link rel="stylesheet" href="./css/bootstrap-reboot.css"> -->
   <style>
+    body {
+      font-family: "Avenir Next", Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "メイリオ", Meiryo, Osaka, sans-serif;
+    }
+
     .section-heading {
       height: 100vh;
       width: 100vw;
@@ -15,6 +17,7 @@
       align-items: center;
       flex-direction: column;
       position: relative;
+      background-image: url(./images/ro-top-image-01.jpg);
       background-color: #555;
       background-position: 50% 50%;
       background-size: cover;
@@ -35,6 +38,11 @@
     }
 
     #title-container {
+      animation: move-to-top-left 1s 2s forwards;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
       width: 1000px;
       height: 80px;
     }
@@ -59,13 +67,18 @@
     }
 
     .btn {
-      animation: fade-in 0.4s 1.2s forwards;
       text-decoration: none;
       font-size: 14px;
       margin: 8px;
       padding: 8px;
       color: #fff;
-      background-color: #555;
+      background-color: #EB5E46;
+      animation: change-bg-color 1s 4s forwards;
+    }
+
+    .button-container {
+      animation: fade-in 0.4s 1.2s forwards;
+      margin-top: 2.4rem;
       opacity: 0;
     }
 
@@ -76,8 +89,50 @@
       }
 
       100% {
-        opacity: 0.8;
+        opacity: 0.25;
         transform: translateY(0);
+      }
+    }
+
+    @keyframes change-bg-color {
+      0% {
+        background-color: #EB5E46;
+      }
+
+      100% {
+        background-color: #143A95;
+      }
+    }
+
+    #title-text-wrap {
+      animation: font-size-down 1s 2s forwards;
+    }
+
+    @keyframes font-size-down {
+      0% {
+        font-size: 80px;
+      }
+
+      100% {
+        font-size: 24px;
+      }
+    }
+
+    @keyframes move-to-top-left {
+      0% {
+        width: 1000px;
+        height: 80px;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      100% {
+        width: 300px;
+        height: 34px;
+        top: 8px;
+        left: 8px;
+        transform: translateX(0);
       }
     }
   </style>
@@ -85,15 +140,18 @@
 <body>
   <div class="section-heading">
     <svg id="title-container">
-      <g id="Daily-UI-003" stroke="none" stroke-width="2" fill="none" fill-rule="evenodd" font-weight="normal" font-family="Lato-Regular, Lato"
-        letter-spacing="3" font-size="80">
+      <g id="title-text-wrap" stroke="none" stroke-width="2" fill="none" fill-rule="evenodd" font-weight="normal" font-family="Avenir next"
+        letter-spacing="2" font-size="80">
         <g id="title-text" stroke="#fff" stroke-width="1" fill="#fff" fill-opacity="0">
           <text id="Svg.html">
-            <tspan y="80">Hello world</tspan>
+            <tspan y="55%">RYUNOSUKE OKAZAKI</tspan>
           </text>
         </g>
       </g>
     </svg>
+    <div class="button-container">
+      <a href="#" class="btn">newest</a>
+    </div>
   </div>
 </body>
 </html>
